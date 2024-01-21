@@ -1,0 +1,25 @@
+// src/firebase.js
+import { initializeApp } from 'firebase/app';
+import { getAnalytics } from 'firebase/analytics';
+import 'firebase/auth';
+import 'firebase/firestore';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
+
+// Your firebase configuration
+const firebaseConfig = {
+  apiKey: "your api key",
+  authDomain: "domain",
+  projectId: "project id",
+  storageBucket: "storage bucket",
+  messagingSenderId: "messaging sender id",
+  appId: "app id",
+  measurementId: "measurement id"
+};
+
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const auth = getAuth(app);
+const firestore = getFirestore(app);
+
+export { app, analytics, auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, firestore };
